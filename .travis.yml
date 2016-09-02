@@ -21,8 +21,8 @@ after_success:
 - tar -czf package.tgz *
 - ls
 - export SSHPASS=$DEPLOY_PASS
-- sshpass -e -o scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/package.tgz
-- sshpass -e -o ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
+- sshpass -e scp -o StrictHostKeyChecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/package.tgz
+- sshpass -e ssh -oStrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
 addons:
   apt:
     packages:
