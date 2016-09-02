@@ -1,0 +1,6 @@
+.idea/
+
+log/*
+temp/*
+vendor/*
+!vendor/others
