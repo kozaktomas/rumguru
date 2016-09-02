@@ -17,9 +17,7 @@ before_script:
 - travis_retry composer install --no-interaction --prefer-dist
 after_success:
 - composer install --no-dev -o
-- ls
 - tar -czf package.tgz *
-- ls
 - export SSHPASS=$DEPLOY_PASS
 - sshpass -e scp -o StrictHostKeyChecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/package.tgz
 - sshpass -e ssh -oStrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
