@@ -1,6 +1,6 @@
 language: php
 php:
-- 5.6s
+- 5.6
 env:
   matrix:
   - PHP_BIN=php
