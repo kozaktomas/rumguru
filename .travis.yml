@@ -1,28 +1,39 @@
 language: php
 php:
-    - 5.6
-    - 7.0
-    - 7.1
-
+- 5.6
+- 7.0
+- 7.1
 matrix:
-    allow_failures:
-        - php: 7.1
-
+  allow_failures:
+  - php: 7.1
 env:
-    - PHP_BIN=php
-    - PHP_BIN=php-cgi
-
+  matrix:
+  - PHP_BIN=php
+  - PHP_BIN=php-cgi
+  global:
+  - secure: CyEAPp6pOtaaxoF8gYe05019BIywT9Xif7Ttu5BiNZdcBg86RLcjLilwRjWIgZxr682/xPpkCsjUaTmiVxJU7hGRPniiHjY5fLFiYeXUSPjA/HwbR+vGqe98qbSqAmaWE86fK49fsmVE87ViwK6cbp2f3OWcNKCeUvaAJEo9ozQYH93ZkHyEN2gLw2s0nAqEngtGiUptAHyG0t4HPBCsDQJzp17DUa7W+Mmf9zcdJuZYxmNa6uNEVhxgDuqTJq32Ij3SJgWSpH3yCinknc253CNsvYDkG4dnHEfHSg/fJvTzPF8rQmnk4Yg9B8bG/1xmw3RHPG2PwoLStSSeO4kIO64i7iMO2T4bXGWiJHcQ7TFCDQOFSHfOXA64L3YGaN8VKmEXb1x6gZo10nFo/Rn/tGxULVNx4MofGG9Ab5QhFvqS4rz8TyIj4QOwCmM1w88FDCS7s2U9rc9L8rNybLOjxsnf/SETExOBxzpAM4JRAKZNKSNAIZkrl5QRHWEFtemYW3SJCWZdSkvyiKQWJ8tXbDduWo2Z/+G4LUZtpk5OvhLLRuRTDvaYDCJGmLUCuJ/lWPKlnadYT4bwtz/GOs0ZLontEjh4UwT9mLSRQDyLt7gR7fNWpF0vhE/IYyLxe2mbHZ/Xcm+CzR3FAdR2TeUEY4VIMKLapSsB/rx5pzp1Guc=
+  - secure: dARMQt38aGOY1qNV+HX9cj83X1AyxeQTxR38I2QRxTRwvWLoCnzpSkggSQYvvZSWsz7E7UxuGXFodgkJkxUlhx50myqmNSQFgV135Rht7AmSsfi7D0uy0gXhNZjPY9kWdpui3PnvUd06KTwd/pD/0+ERM8b3B0Z8T4WfvN8wle7b6J29dhJl+PHVZ2oKaN6bPY8vqISwehoVAPkoAeLOaTDPwrWfwIs8r47gx2JomHLfaS/64HIhLWIX/WVAebQYmOYDZPxLXUn6/C8mpACv0rYIiVBOmd5n1P1TrH/K0G6yiKZ/21GkYFC584qOXWkQnEIJlKQfH5KnVtYav9H7UmTJYe/X3WPfBLBHLl0szRy7gRPlbkCfs9a+C+Npj8Fqohap4rMCz7wN29dc2IECCS8SYesAOCTgs5teG7XBQqbhLrA18ng+TGVhS1QRkrZRJhLnRFvkbj6cbZy56G17LeNi6KYvYvgKlMX++mKcN1p83zbb+Q/85L6kIKsCcd3B4m1OD0pgXk78Vkw47OpLqU70zGHQfZpouEAqjVKzqeOqXmzO1wIJySZubByOSUVUbwR7Lycgi0i+KRfbnkUhoBkVYXs0iWUwzlO1QJtQag7zMlLvnSZLJTsfmrvH6McCYAhSgBuz39jA6L2TFk62bdFX+JljlveTOa5yvDPMkJw=
+  - secure: Go9whfCVYI8eKedBKT6G2w5fOfou/o1wt5Et3XW9npWRH6ZFyugNlEzMfKV0I63a3ijN/bDvYAkTt1f8G8dkEARQZzlngvxC637hTi1MC17QqEAIVu/0mWdpInYOOHn1uIEsCDT4xu3p+pgRvJLp7cNKb98tb2Z8PyyGM+7kiVPfcKJOqgYWgiYC+g04uPbBQe2Ge8FOJWgSv0T7YDPSJMFz8vyEbkb/IMDnlW3qFCpJFm0VFJ9sbEs5h67HLd2KuJYdu57P/1de4b6kEGZ6VBszssOwpoR6Q8wJRaPRvrzd4RxugYwxFH6kqvJInH2jMT3DrRbz7CDhRHaN7CcRa7CBUUhK82pZQuhd78M5wLd6FXk3WbmUeQip6hwGbEDb8j197jNAbB3PVVCgTkTJqW65ijEbrK//nTHQseaHcdPlrsL7CMiWj5vAo87wunCwAgOoD3yWI4firLvcaYe8oufzOAO+dVKCRHfmQo2kcGAbQmowm2MdHt3BpwnRNuo3IVYjw7lzx53Gpf1AQDeyll1Quik1I2uuOCMxzGXfv7BB+mCgKx6oYBhotKQj6yW+KpxLLqCxmZ1va2RdEC5o9XFgGJONRgsHttJ1uZxcAo5NBQRg7PSCmwTJoCAFY6Xsn6SKJnw7I3UGzIKqRJ1yKA9yHU4RO8SxN1SpHpdIIxY=
+  - secure: gpmQsEkCH9rTGR7TIZg150fTN6n4Vdxwa/cPCbik5cR+W3kgLtUa6dE9PEUgLxiTiAyjOlF9EQaG4nAJ855CZ5bSKL0R8CSDdic/S8YI6YJs8L4ebrACM/ygG7nlsSn5mbQNpQ3YUJujByNKGHOXVtDY0xOiiushzcFdwWlsumNSZwyBGbhgBsuoKIRAYNuRX6jpAahE0zmNrmUDnnsvjNypFbwY+obdeV3/l7/P+krWa/izXDXfDKC7CiEV97YI2KfGxY1swzBEko+u6dtWAeMi2dTr59kfLDFkqsvssP6bwXYHqfZbO6meKgXTpL98glPdkyxiZpg9g63bbn9YtYmC182ynb8BYJOOhi39s6xBmgjZrlTXFNFoEiM9ZRg/flD7q2L3SPNEZkLw5at6PPwsDIpCzip8ijwstVs9KuYMoXcxCydqzmmkYJJP3bsgJxKspbXqt4WsUC6cXQYSVPJZK4o6w0GRsj5VDgp4Uiu6sFYBvbDFSOIkiQrwd0j7gdUxv5LMJUaqwM/9qXXaUP1p3AcbOxxAZbO9HLcOG9Sb8ikn21Cukqve25V149WRi6OeMkFYD6zaabOQnzNeI33WzNwhcdKezhFjb1T5hLGXKkynbLQsDrwuHQ4lyQt06gU+gGDOA0As/94jOuzOroHM5+cGJqPPUgT/MNloIbA=
 script:
-    - vendor/bin/tester -p $PHP_BIN tests -s
-
+- vendor/bin/tester -p $PHP_BIN tests -s
 after_failure:
-    - for i in $(find tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
-
+- for i in $(find tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
 before_script:
-    - travis_retry composer install --no-interaction --prefer-dist
-
+- travis_retry composer install --no-interaction --prefer-dist
+after_success:
+- composer install --no-dev -o
+- mkdir build
+- mv * build
+- tar -czf package.tgz build
+- export SSHPASS=$DEPLOY_PASS
+- sshpass -e scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+- sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
+addons:
+  apt:
+    packages:
+    - sshpass
 sudo: false
-
 cache:
-    directories:
-        - $HOME/.composer/cache
+  directories:
+  - "$HOME/.composer/cache"
