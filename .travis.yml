@@ -1,15 +1,9 @@
 language: php
 php:
-- 5.6
-- 7.0
-- 7.1
-matrix:
-  allow_failures:
-  - php: 7.1
+- 5.6s
 env:
   matrix:
   - PHP_BIN=php
-  - PHP_BIN=php-cgi
   global:
   - secure: CyEAPp6pOtaaxoF8gYe05019BIywT9Xif7Ttu5BiNZdcBg86RLcjLilwRjWIgZxr682/xPpkCsjUaTmiVxJU7hGRPniiHjY5fLFiYeXUSPjA/HwbR+vGqe98qbSqAmaWE86fK49fsmVE87ViwK6cbp2f3OWcNKCeUvaAJEo9ozQYH93ZkHyEN2gLw2s0nAqEngtGiUptAHyG0t4HPBCsDQJzp17DUa7W+Mmf9zcdJuZYxmNa6uNEVhxgDuqTJq32Ij3SJgWSpH3yCinknc253CNsvYDkG4dnHEfHSg/fJvTzPF8rQmnk4Yg9B8bG/1xmw3RHPG2PwoLStSSeO4kIO64i7iMO2T4bXGWiJHcQ7TFCDQOFSHfOXA64L3YGaN8VKmEXb1x6gZo10nFo/Rn/tGxULVNx4MofGG9Ab5QhFvqS4rz8TyIj4QOwCmM1w88FDCS7s2U9rc9L8rNybLOjxsnf/SETExOBxzpAM4JRAKZNKSNAIZkrl5QRHWEFtemYW3SJCWZdSkvyiKQWJ8tXbDduWo2Z/+G4LUZtpk5OvhLLRuRTDvaYDCJGmLUCuJ/lWPKlnadYT4bwtz/GOs0ZLontEjh4UwT9mLSRQDyLt7gR7fNWpF0vhE/IYyLxe2mbHZ/Xcm+CzR3FAdR2TeUEY4VIMKLapSsB/rx5pzp1Guc=
   - secure: dARMQt38aGOY1qNV+HX9cj83X1AyxeQTxR38I2QRxTRwvWLoCnzpSkggSQYvvZSWsz7E7UxuGXFodgkJkxUlhx50myqmNSQFgV135Rht7AmSsfi7D0uy0gXhNZjPY9kWdpui3PnvUd06KTwd/pD/0+ERM8b3B0Z8T4WfvN8wle7b6J29dhJl+PHVZ2oKaN6bPY8vqISwehoVAPkoAeLOaTDPwrWfwIs8r47gx2JomHLfaS/64HIhLWIX/WVAebQYmOYDZPxLXUn6/C8mpACv0rYIiVBOmd5n1P1TrH/K0G6yiKZ/21GkYFC584qOXWkQnEIJlKQfH5KnVtYav9H7UmTJYe/X3WPfBLBHLl0szRy7gRPlbkCfs9a+C+Npj8Fqohap4rMCz7wN29dc2IECCS8SYesAOCTgs5teG7XBQqbhLrA18ng+TGVhS1QRkrZRJhLnRFvkbj6cbZy56G17LeNi6KYvYvgKlMX++mKcN1p83zbb+Q/85L6kIKsCcd3B4m1OD0pgXk78Vkw47OpLqU70zGHQfZpouEAqjVKzqeOqXmzO1wIJySZubByOSUVUbwR7Lycgi0i+KRfbnkUhoBkVYXs0iWUwzlO1QJtQag7zMlLvnSZLJTsfmrvH6McCYAhSgBuz39jA6L2TFk62bdFX+JljlveTOa5yvDPMkJw=
@@ -23,9 +17,7 @@ before_script:
 - travis_retry composer install --no-interaction --prefer-dist
 after_success:
 - composer install --no-dev -o
-- mkdir build
-- mv * build
-- tar -czf package.tgz build
+- tar -czf package.tgz .
 - export SSHPASS=$DEPLOY_PASS
 - sshpass -e scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
 - sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
