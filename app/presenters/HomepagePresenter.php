@@ -1,10 +1,18 @@
 <?php
 
-namespace App\Presenters;
+namespace Rumguru\Presenters;
 
 use Nette;
 
 
-class HomepagePresenter extends Nette\Application\UI\Presenter
+class HomepagePresenter extends BasePresenter
 {
+
+
+    public function renderDefault()
+    {
+
+    }
+
+
 }

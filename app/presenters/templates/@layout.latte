@@ -1,19 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-
-	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+    <meta charset="utf-8">
+    <title>Bootswatch: Simplex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="{$basePath}/css/bootstrap.min.css">
 </head>
-
 <body>
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
-	{include content}
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" n:href="Homepage:">RumGuru</a>
+            <button data-target="#navbar-main" data-toggle="collapse" type="button" class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar-main" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li n:if="!$isLoggedIn"><a n:href="Sign:in">Přihlásit se</a></li>
+                <li n:if="!$isLoggedIn"><a n:href="Sign:registration">Registrace</a></li>
+                <li n:if="$isLoggedIn"><a n:href="Sign:out">Odhlásit</a></li>
+            </ul>
 
-	{block scripts}
-	<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
-	{/block}
+
+            <div class="col-sm-3 col-md-3 pull-right">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Page Content -->
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-lg-9">
+            {include content}
+        </div>
+
+        <div class="col-lg-3">
+            <h2>Typy rumu</h2>
+            <div class="list-group nom">
+                <a class="list-group-item" href="asd">
+                    <span class="badge">14</span>
+                    Cras justo odio
+                </a>
+            </div>
+            <div class="list-group nom">
+                <a class="list-group-item" href="asd">
+                    <span class="badge">14</span>
+                    Cras justo odio
+                </a>
+            </div>
+            <div class="list-group nom">
+                <a class="list-group-item" href="asd">
+                    <span class="badge">14</span>
+                    Cras justo odio
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{$basePath}/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Presenters;
+namespace Rumguru\Presenters;
 
 use Nette;
 use Nette\Application\Responses;
