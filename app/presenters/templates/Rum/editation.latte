@@ -1,0 +1,92 @@
+{block content}
+<h1>Rum</h1>
+{form rumForm class => 'form-horizontal'}
+    <fieldset>
+
+        <div class="form-group">
+            {label name class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input name class => 'form-control', placeholder => 'Název rumu'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {label brand class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input brand class => 'form-control', placeholder => 'Značka rumu / Výrobce rumu'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {label country class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input country class => 'form-control', placeholder => 'Země, kde byl rum vyroben'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {label type class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input type class => 'form-control'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {label price_from class => 'col-lg-2 control-label' /}
+            <div class="col-lg-2">
+                {input price_from class => 'form-control', placeholder => 'Počínající cena'}
+            </div>
+            <div class="col-lg-1">
+                {label price_to class => 'col-lg-2 control-label' /}
+            </div>
+            <div class="col-lg-2">
+                {input price_to class => 'form-control', placeholder => 'Konečná cena'}
+            </div>
+        </div>
+
+        <div class="form-group">
+
+        </div>
+
+        <div class="form-group">
+            {label country class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input country class => 'form-control', placeholder => 'Zemně původu'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {label age class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input age class => 'form-control', placeholder => 'Staří rumu'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {label alcohol class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input alcohol class => 'form-control', placeholder => 'Objem alkoholu v %'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {label color class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input color class => 'form-control', placeholder => 'Barva rumu'}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {label image class => 'col-lg-2 control-label' /}
+            <div class="col-lg-6">
+                {input image}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                {input ok class => 'btn btn-danger'}
+            </div>
+        </div>
+    </fieldset>
+{/form}

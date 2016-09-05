@@ -18,4 +18,7 @@ services:
 	router: \App\RouterFactory::createRouter
 	authenticator: \Rumguru\Model\Authenticator
 
+	- Rumguru\Model\RumImage
+
 	- Rumguru\Repositories\UserRepository
+	- Rumguru\Repositories\RumTypeRepository
