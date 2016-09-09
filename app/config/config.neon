@@ -22,3 +22,4 @@ services:
 
 	- Rumguru\Repositories\UserRepository
 	- Rumguru\Repositories\RumTypeRepository
+	- Rumguru\Repositories\RumRepository
