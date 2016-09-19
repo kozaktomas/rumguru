@@ -1,27 +1,26 @@
 {block content}
-<h1>Poslední rumy</h1>
+    <h1>Poslední rumy</h1>
 
 
-<a href="">
-    <div class="panel panel-danger">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <strong>Panel primary</strong></h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-lg-3">
-                    <img width="95%"
-                         src="https://pbs.twimg.com/profile_images/522868599589842944/uMu6kNBg.jpeg" alt="">
+    {foreach $rums as $rum}
+        <a n:href="Rum:detail $rum[id]">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>{$rum[name]}</strong></h3>
                 </div>
-                <div class="col-lg-9">
-                    Rum je alkoholický nápoj destilovaný z melasy, nebo ze šťávy získané z cukrové třtiny.[1] Původ slova rum není jasný. Odborníci se uvádějí dvě varianty. Podle první teorie je slovo rum odvozeno od slova rumbellion, což je anglicky „velký ruch“. Podle druhého tábora pochází pojmenování tohoto nápoje od latinského názvu „sacharum officinarium“.[zdroj?]
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <img width="95%"
+                                 src="{$imageDir}/{$rum[image]}" alt="">
+                        </div>
+                        <div class="col-lg-9">{$rum[description]}</div>
+                    </div>
 
-                    Většina producentů rumu se tak nachází v oblastech, kde je rozvinutý cukrovarnický průmysl, jako je Austrálie, Indie, ostrov Réunion či oblast Karibiku (zde zejména Jamajka a Kuba). Jeho vlastí jsou Antily (souostroví, které představuje dominantní část Karibiku), kde se vyvinula na každém ostrově specifická varianta tohoto destilátu.
                 </div>
+
             </div>
-
-        </div>
-    </div>
-</a>
+        </a>
+    {/foreach}
 {/block}

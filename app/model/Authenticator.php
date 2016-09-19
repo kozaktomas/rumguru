@@ -60,6 +60,6 @@ class Authenticator implements IAuthenticator
         unset($user['password']);
         unset($user['isAdmin']);
         unset($user['id']);
-        return new Identity($userId, $role, $user);
+        return new Identity($userId, [$role], $user);
     }
 }

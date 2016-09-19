@@ -19,8 +19,14 @@ class Rum
     /** @var string */
     private $description;
 
+    /** @var string */
+    private $brand;
+
     /** @var int */
     private $brand_id;
+
+    /** @var string */
+    private $country;
 
     /** @var int */
     private $country_id;
@@ -114,6 +120,23 @@ class Rum
     }
 
     /**
+     * @return string
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @param string $brand
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+    }
+
+
+    /**
      * @return int
      */
     public function getBrandId()
@@ -129,6 +152,23 @@ class Rum
         $this->brand_id = $brand_id;
     }
 
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    
     /**
      * @return int
      */

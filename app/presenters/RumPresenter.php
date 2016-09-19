@@ -3,9 +3,12 @@
 namespace Rumguru\Presenters;
 
 
+use Nette\Application\BadRequestException;
 use Nette\Application\UI\Form;
 use Nette\Http\FileUpload;
+use Rumguru\Model\Entities\Rum;
 use Rumguru\Model\RumImage;
+use Rumguru\Repositories\RumRepository;
 use Rumguru\Repositories\RumTypeRepository;
 
 class RumPresenter extends BasePresenter
@@ -17,11 +20,53 @@ class RumPresenter extends BasePresenter
     /** @var RumImage */
     private $rumImage;
 
-    public function __construct(RumTypeRepository $rumTypeRepository, RumImage $rumImage)
+    /** @var RumRepository */
+    private $rumRepository;
+
+    public function __construct(
+        RumTypeRepository $rumTypeRepository,
+        RumImage $rumImage,
+        RumRepository $rumRepository
+    )
     {
         parent::__construct();
         $this->rumTypeRepository = $rumTypeRepository;
         $this->rumImage = $rumImage;
+        $this->rumRepository = $rumRepository;
+    }
+
+    public function renderDetail($rumId)
+    {
+        $rum = $this->rumRepository->getRumById($rumId);
+        if (!$rum) {
+            throw new BadRequestException;
+        }
+        $this->template->rum = $rum;
+    }
+
+    public function renderEditation($rumId = null)
+    {
+        if (!is_null($rumId)) {
+            $rum = $this->rumRepository->getRumById($rumId);
+            if (!$rum) {
+                throw new BadRequestException;
+            }
+
+            /** @var Form $form */
+            $form = $this['rumForm'];
+            $form->setDefaults([
+                'name' => $rum['name'],
+                'description' => $rum['description'],
+                'brand' => $rum['brand'],
+                'country' => $rum['country'],
+                'type' => $rum['type'],
+                'price_from' => $rum['price_from'],
+                'price_to' => $rum['price_to'],
+                'age' => $rum['age'],
+                'alcohol' => $rum['alcohol'],
+                'color' => $rum['color'],
+            ]);
+        }
     }
 
     public function createComponentRumForm()
@@ -66,7 +111,24 @@ class RumPresenter extends BasePresenter
         /** @var FileUpload $image */
         $image = $values->image;
         $filename = $this->rumImage->saveImage($image);
-        dump($filename);die;
+
+        $rumEntity = new Rum();
+        $rumEntity->setName($values->name);
+        $rumEntity->setImage($filename);
+        $rumEntity->setDescription($values->description);
+        $rumEntity->setBrand($values->brand);
+        $rumEntity->setCountry($values->country);
+        $rumEntity->setType($values->type);
+        $rumEntity->setPriceFrom($values->price_from);
+        $rumEntity->setPriceTo($values->price_to);
+        $rumEntity->setAge($values->age);
+        $rumEntity->setAlcohol($values->alcohol);
+        $rumEntity->setColor($values->color);
+        $rumEntity->setScore(null);
+        $rumEntity->setValidated(null);
+
+        $this->rumRepository->insertRum($rumEntity);
+        die;
     }
 
 }

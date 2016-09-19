@@ -1,0 +1,15 @@
+{block content}
+<h1>{$rum[name]}</h1>
+
+<img width="50%" src="{$imageDir}/{$rum[image]}" alt="">
+
+{$rum[description]}
+
+{if $isAdmin}
+    <hr>
+    <ul>
+        <li>
+            <a n:href="Rum:editation $rum[id]">Upravit</a>
+        </li>
+    </ul>
+{/if}
